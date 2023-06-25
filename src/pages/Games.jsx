@@ -40,7 +40,7 @@ export const Games = () => {
       const birdGravity = 0.25;
       const birdJumpStrength = 5;
       const pipeWidth = 80;
-      let pipeSpeed = 3.5;
+      let pipeSpeed = 5;
       const pipeGap = 300;
 
       const bird = {
@@ -48,7 +48,6 @@ export const Games = () => {
          y: canvasHeight / 2,
          width: birdSize,
          height: birdSize - 10,
-         color: '#f9c74f',
          velocity: 0,
          jump: function () {
             this.velocity = -birdJumpStrength;
@@ -73,7 +72,6 @@ export const Games = () => {
          y: 0,
          width: pipeWidth,
          height: 0,
-         color: '#f94144',
          passed: false,
          update: function () {
             this.x -= pipeSpeed;
@@ -109,7 +107,6 @@ export const Games = () => {
          y: 0,
          width: 50,
          height: 20,
-         color: '#90be6d',
          active: false,
          update: function () {
             this.x -= pipeSpeed;
@@ -222,10 +219,10 @@ export const Games = () => {
    }
 
    return (
-      <div style={{display:'flex',justifyContent:'center'}}>
+      <div className='games' style={{display:'flex',justifyContent:'center'}}>
          <div style={{ position: 'absolute', top: '30%', color: 'blue',fontSize:'1.5em' }}>{counterText}</div>
          {gameOver && <button style={{ position: 'absolute', top: '20%', color: 'blue',fontSize:'2em' }} onClick={handleClick}>start</button>}
-         <canvas style={{ width: '100%',maxWidth:'400px',height:'100%' }} ref={canvasRef} width={400} height={500} tabIndex="0" />
+         <canvas style={{ width: '100%',maxWidth:'400px',height:'100%' }} ref={canvasRef} width={400} height={600} tabIndex="0" />
       </div>
    );
 };
