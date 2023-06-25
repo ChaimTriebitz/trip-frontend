@@ -1,0 +1,43 @@
+.search {
+   display: flex;
+   background: white;
+   border-radius: 5px;
+   position: relative;
+}
+
+.search input {
+   border: none;
+   outline: none;
+   background: inherit;
+   flex-grow: 1;
+   font-size: 1em;
+   color: black;
+   padding: 0.25em 0.75em;
+   border-radius: 5px;
+   max-width: 200px;
+}
+
+.search input:focus {
+   border: none;
+   outline: none;
+}
+
+.search input:focus-visible {
+   outline: 2px solid var(--color-yellow1);
+   outline-offset: -1px;
+}
+
+.search svg {
+   width: 30px;
+}
+
+.search svg path {
+   fill: black;
+}
+
+.search label {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   right: 5px;
+}

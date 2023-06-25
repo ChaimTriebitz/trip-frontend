@@ -1,0 +1,14 @@
+.draggable-item {
+   cursor: grabbing;
+}
+
+.draggable-item:hover {}
+
+.draggable-item.dragging {
+   background: green;
+   cursor: grab;
+}
+
+.draggable-item.dragging-over {
+   background: red;
+}

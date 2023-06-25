@@ -1,0 +1,31 @@
+.schedule header {
+   height: 150px;
+   background-image: url(../../assets/imgs/schedule-banner.jpg);
+   background-size: cover;
+   background-position: center;
+}
+
+.schedule header h1 {
+   font-size: 2.5em;
+}
+
+
+
+.schedule .schedule-day .activaty {
+   border-bottom: 2px solid var(--color-olive-dark);
+   padding: 1em;
+   display: flex;
+}
+
+.schedule .schedule-day .activaty h2 {
+   color: var(--color-gold);
+   font-size: 1.25em;
+   text-decoration: underline;
+   width: 100px;
+}
+
+.schedule .schedule-day .activaty h6 {
+   color: var(--color-olive-light);
+   flex: 1;
+   align-self: end;
+}

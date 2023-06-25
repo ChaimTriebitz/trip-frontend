@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom'
+import { ScheduleDay, NavBar, ZmanimDay } from './cmps';
+import { Games, Home, Images, Schedule, Zmanim } from './pages';
+import { useEffect, useState } from 'react'
+import { useGlobalState } from './hooks/useGlobalState';
+import { ACTIONS } from './state';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   const { dispatch, data } = useGlobalState()
+   const [image, setImage] = useState('')
+
+
+   return (
+      <div className="App">
+         {/* <Msg /> */}
+         <NavBar />
+         <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/images' element={<Images />} />
+            <Route path='/games' element={<Games />} />
+
+            {/* <Route path='login' element={<Login />} /> */}
+            <Route path='/schedule' element={<Schedule />} >
+               <Route path='/schedule/:schedule_day' element={<ScheduleDay />} />
+            </Route>
+            <Route path='/zmanim' element={<Zmanim />} >
+               <Route path='/zmanim/:zmanim_day' element={<ZmanimDay />} />
+            </Route>
+
+         </Routes>
+      </div>
+   );
 }
 
 export default App;

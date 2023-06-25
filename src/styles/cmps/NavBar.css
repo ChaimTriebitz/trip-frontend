@@ -1,0 +1,161 @@
+.nav-bar {
+   background: var(--color-gold);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0.75em;
+   position: relative;
+   z-index: 1;
+}
+.nav-bar h1{
+   font-weight: 600;
+   font-size: 2em;
+   /* color: var(--color-blue-light); */
+   font-family: 'Exo+2';
+   text-transform: capitalize;
+}
+
+.nav-bar .logo-section a {
+   display: block;
+   width: 50px;
+   height: 50px;
+   background-image: url(../../assets/imgs/logo-transparentpng.png);
+   background-size: cover;
+}
+
+.nav-bar .nav {
+   background: var(--color-gold);
+   position: absolute;
+   top: 100%;
+   left: 0;
+   width: 100%;
+   transform: scale(1, 0);
+   transform-origin: top;
+   transition: transform 400ms ease-in-out;
+   padding: 1em;
+   text-align: left;
+   margin-bottom: 0.5em;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   gap: 1em;
+}
+
+.nav-bar .nav a {
+   text-decoration: none;
+   color: white;
+   font-size: 1em;
+   text-transform: uppercase;
+   opacity: 0;
+   transition: opacity 150ms ease-in-out;
+   width: fit-content;
+}
+
+.nav-bar .nav a:hover,
+.nav-bar .nav a.active {
+   color: var(--color-blue-light)
+}
+
+
+.nav-bar .nav.open {
+   transform: scale(1, 1);
+}
+
+.nav-bar .nav.open a {
+   opacity: 1;
+   transition: opacity 250ms ease-in-out 250ms;
+}
+
+.nav-bar .btns {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+
+.nav-bar .hamburger-section button {
+   height: 100%;
+   width: 100%;
+   display: flex;
+   align-items: center;
+}
+
+.nav-bar .hamburger-section button svg {
+   fill: white;
+}
+
+@media (min-width: 1000px) {
+   .nav-bar .hamburger-section {
+      visibility: hidden;
+      flex-basis: 10%;
+   }
+
+   .nav-bar .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-basis: 10%;
+   }
+   .nav-bar h1{
+     display: none;
+   }
+
+   .nav-bar .nav {
+      all: unset;
+      position: relative;
+      top: initial;
+      left: initial;
+      transition: none;
+      background: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 1em;
+      width: 100%;
+      min-width: 450px;
+      max-width: 650px;
+      margin: 0.5em 1em;
+      text-align: left;
+      transform: scale(1, 1);
+   }
+
+   .nav-bar .nav a {
+      position: relative;
+      opacity: 1;
+      padding: 0.25em 1em;
+   }
+
+   .nav-bar .nav a::after {
+      content: '';
+      background: var(--color-blue-light);
+      display: block;
+      position: absolute;
+      bottom: -35%;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      transform: scale(0, 1);
+      transition: transform ease-in-out 250ms;
+   }
+
+   .nav-bar .nav a:hover,
+   .nav-bar .nav a.active {
+      /* background: var(--color6); */
+   }
+
+   .nav-bar .nav a:hover::after {
+      transform: scale(1, 1);
+   }
+
+   .nav-bar .nav a.active::after {
+      transform: scale(1, 1);
+   }
+}
+
+.nav-bar .nav-bar .drop-down {
+   position: relative;
+   width: 250px;
+}
+
+.nav-bar .nav-bar .drop-down>button {
+   width: 100%;
+}

@@ -1,0 +1,27 @@
+.zmanim header {
+   position: relative;
+   height: 200px;
+   background-image: url(../../assets/imgs/zmanim.jpg);
+   background-size: cover;
+   background-position: center;
+   opacity: 0.85;
+}
+
+.zmanim header h1 {
+   top: 35%;
+}
+
+.zmanim-day {
+   max-width: 400px;
+   width: 90%;
+   margin: auto;
+   padding: 1em;
+}
+
+.zmanim-day section {
+   padding: 0.5em 0;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   color: var(--color-blue-dark);
+}

@@ -1,0 +1,13 @@
+:root {
+   --body-fs: 1.125rem;
+   /* COLORS */
+   --html-theme: light;
+   --body-color: #eee;
+   --color-olive-light: #B9BD86;
+   --color-olive-dark: #535724;
+   --color-blue-light: #6060BD;
+   --color-blue-dark: #343470;
+   --color-purple-light: #BD3AA8;
+   --color-purple-dark: #702865;
+   --color-gold: #F0A500;
+}
