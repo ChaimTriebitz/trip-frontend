@@ -11,7 +11,7 @@ export const Schedule = () => {
    const { pathname } = useLocation()
    // UPDATE SCHEDULE
    // const handlePostSchedule = () => {
-   //    axios.post('http://localhost:4000/api/schedules', schedule)
+   //    axios.post('https://trip-back-end-2.onrender.com/api/schedules', schedule)
    //       .then((response) => response.json())
    //       .catch((error) => console.error(error));
    // }

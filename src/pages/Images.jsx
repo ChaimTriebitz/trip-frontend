@@ -17,7 +17,7 @@ export const Images = () => {
    useUpdateEffect(() => {
       if (images.length === 0) return
       console.log(image);
-      setImage(`http://localhost:4000/${images[0].path.replace(/\\/g, '/')}`)
+      setImage(`https://trip-back-end-2.onrender.com/${images[0].path.replace(/\\/g, '/')}`)
    }, [images])
 
    useEffect(() => {
@@ -37,7 +37,7 @@ export const Images = () => {
       const formData = new FormData();
       formData.append('image', image);
 
-      axios.post('http://localhost:4000/api/images', formData)
+      axios.post('https://trip-back-end-2.onrender.com/api/images', formData)
          .then((res) => {
             fetchImages()
          })
@@ -47,7 +47,7 @@ export const Images = () => {
    };
 
    const fetchImages = () => {
-      axios.get('http://localhost:4000/api/images')
+      axios.get('https://trip-back-end-2.onrender.com/api/images')
          .then((res) => {
             res.data.sort((a, b) => {
                const timestampA = parseInt(a.filename.split("--")[0]);
@@ -105,7 +105,7 @@ export const Images = () => {
          </main>
          <section className="gallery" ref={galleryRef}>
             {images.map((image) => (
-               <img key={image._id} onClick={handleClick} src={`http://localhost:4000/${image.path.replace(/\\/g, '/')}`} alt={image.filename} />
+               <img key={image._id} onClick={handleClick} src={`https://trip-back-end-2.onrender.com/${image.path.replace(/\\/g, '/')}`} alt={image.filename} />
             ))}
          </section>
       </div>
