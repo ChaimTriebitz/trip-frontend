@@ -1,13 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
 import { ScheduleDay, NavBar, ZmanimDay } from './cmps';
 import { Games, Home, Images, Schedule, Zmanim } from './pages';
-import { useEffect, useState } from 'react'
-import { useGlobalState } from './hooks/useGlobalState';
-import { ACTIONS } from './state';
 
-function App() {
-   const { dispatch, data } = useGlobalState()
-   const [image, setImage] = useState('')
+
+function App(){
+   document.title = "50 Anniversary";
+
 
 
    return (
