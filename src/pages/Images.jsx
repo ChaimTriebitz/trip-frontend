@@ -99,7 +99,7 @@ export const Images = () => {
          </main>
          <section className="gallery" ref={galleryRef}>
             {images.map((image) => (
-               <img key={image._id} onClick={handleClick} src={`https://trip-back-end-2.onrender.com/${image.path.replace(/\\/g, '/')}`} alt={image.filename} />
+               <img key={image._id} onerror='sdfsdfsd' onClick={handleClick} src={`https://trip-back-end-2.onrender.com/${image.path.replace(/\\/g, '/')}`} alt={image.filename} />
             ))}
          </section>
       </div>
