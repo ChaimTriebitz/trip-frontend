@@ -13,7 +13,7 @@ export const Games = () => {
    const frameRef = useRef(null);
    const foodsRef = useRef([]);
    const [backgroundIndex, setBackgroundIndex] = useState(0);
-   const [counterText, setCounterText] = useState(3)
+   const [counterText, setCounterText] = useState('')
    const backgroundImages = [
       backgroundImage1,
       backgroundImage2,
@@ -71,7 +71,7 @@ export const Games = () => {
          x: canvasWidth,
          y: 0,
          width: pipeWidth,
-         height: 0,
+         height: 50,
          passed: false,
          update: function () {
             this.x -= pipeSpeed;
@@ -174,25 +174,20 @@ export const Games = () => {
             food.update();
             food.draw();
          });
-
          ctx.fillStyle = '#000';
          ctx.font = '24px sans-serif';
          ctx.fillText(`Score: ${scoreRef.current}`, 10, 30);
-
          if (gameOver) {
-            ctx.font = '48px sans-serif';
-            ctx.fillText('Game Over', canvasWidth / 2 - 120, canvasHeight / 2);
-            ctx.font = '24px sans-serif';
-            ctx.fillText('Press Enter to Play Again', canvasWidth / 2 - 140, canvasHeight / 2 + 50);
+            scoreRef.current = 0
+            ctx.fillText(`Game Over`, canvasWidth / 2 - 60, 200);
             cancelAnimationFrame(frameRef.current);
          } else {
             frameRef.current = requestAnimationFrame(draw);
          }
       };
-
+      draw();
       document.addEventListener('keydown', handleKeyDown);
       document.addEventListener('click', handleClick);
-      draw();
 
       return () => {
          document.removeEventListener('keydown', handleKeyDown);
@@ -203,26 +198,28 @@ export const Games = () => {
 
    function handleClick(e) {
       if (!gameOver) return
-      let count = 2;
+      let count = 3;
       const counterInterval = setInterval(() => {
          if (count > 0) {
             setCounterText(count)
             count--
          } else {
             setCounterText('Go!')
-            setTimeout(() => setCounterText(''), 500)
-            setGameOver(false)
-            clearInterval(counterInterval);
+            setTimeout(() => {
+               setGameOver(false)
+               setCounterText('')
+               clearInterval(counterInterval);
+            }, 1000)
          }
       }, 1000);
 
    }
 
    return (
-      <div className='games' style={{display:'flex',justifyContent:'center'}}>
-         <div style={{ position: 'absolute', top: '30%', color: 'blue',fontSize:'1.5em' }}>{counterText}</div>
-         {gameOver && <button style={{ position: 'absolute', top: '20%', color: 'blue',fontSize:'2em' }} onClick={handleClick}>start</button>}
-         <canvas style={{ width: '100%',maxWidth:'400px',height:'100%' }} ref={canvasRef} width={400} height={600} tabIndex="0" />
+      <div className='games' >
+         <div className='counter'>{counterText && <span>{counterText}</span>} </div>
+         {gameOver && <button className='btn b2' onClick={handleClick}>start</button>}
+         <canvas  ref={canvasRef} width={400} height={600} tabIndex="0" />
       </div>
    );
 };

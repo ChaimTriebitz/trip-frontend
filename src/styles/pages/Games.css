@@ -1,3 +1,73 @@
-.games{
-background-image: url(../../assets/imgs/background-1.jpg);
+.games {
+   background-image: url(../../assets/imgs/background-1.jpg);
+   background-size: cover;
+   background-repeat: no-repeat;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+}
+
+.games canvas {
+   width: 100%;
+   max-width: 400px;
+   height: 100%;
+}
+
+.games button {
+   position: absolute;
+   top: 20%;
+   font-size: 1.5em;
+   border-radius: 25px;
+   padding: 0.01em 1em;
+   animation: blur 0.5s 1s ease-in-out infinite;
+}
+
+.games .counter {
+   position: absolute;
+   top: 30%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.games .counter span {
+   color: var(--color-blue-light);
+   font-size: 3em;
+   font-weight: 700;
+   opacity: 0;
+   animation: countdown 1s ease-in-out infinite alternate;
+}
+
+@keyframes countdown {
+   0% {
+      opacity: 0;
+      filter: blur(10px);
+      transform: scale(1.5);
+   }
+
+   50% {
+      filter: blur(0px);
+
+
+   }
+
+   100% {
+      opacity: 1;
+      transform: scale(0.5);
+   }
+
+}
+
+@keyframes blur {
+   0% {
+      opacity: 0.9;
+   }
+
+   50% {
+      opacity: 0.95;
+   }
+
+   100% {
+      opacity: 1;
+   }
 }

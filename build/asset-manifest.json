@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.91be96c1.css",
+    "main.js": "/static/js/main.3cc6c5aa.js",
+    "static/media/schedule-banner.jpg": "/static/media/schedule-banner.eba3840739d03964a08d.jpg",
+    "static/media/home-banner.jpg": "/static/media/home-banner.6d99e1474d18a88d0093.jpg",
+    "static/media/gefilta-fish.jpg": "/static/media/gefilta-fish.82019f3e41f705467dfe.jpg",
+    "static/media/zmanim.jpg": "/static/media/zmanim.0150044f4262f004ae59.jpg",
+    "static/media/food-9.webp": "/static/media/food-9.0d5bf9fd4ecd8be9a93f.webp",
+    "static/media/bird-1.webp": "/static/media/bird-1.e908e166316ec14d6e88.webp",
+    "static/media/logo-transparentpng.png": "/static/media/logo-transparentpng.dbb4bea41dc721620712.png",
+    "static/media/train.jpg": "/static/media/train.69369132268d8173860d.jpg",
+    "index.html": "/index.html",
+    "main.91be96c1.css.map": "/static/css/main.91be96c1.css.map",
+    "main.3cc6c5aa.js.map": "/static/js/main.3cc6c5aa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.91be96c1.css",
+    "static/js/main.3cc6c5aa.js"
+  ]
+}

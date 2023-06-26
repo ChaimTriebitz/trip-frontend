@@ -11,10 +11,6 @@ export const Images = () => {
    const [images, setImages] = useState([])
 
    useUpdateEffect(() => {
-      console.log(image);
-      uploadImage()
-   }, [image])
-   useUpdateEffect(() => {
       if (images.length === 0) return
       console.log(image);
       setImage(`https://trip-back-end-2.onrender.com/${images[0].path.replace(/\\/g, '/')}`)
@@ -33,10 +29,9 @@ export const Images = () => {
       });
    }
 
-   const uploadImage = () => {
+   const uploadImage = (img) => {
       const formData = new FormData();
-      formData.append('image', image);
-
+      formData.append('image', img);
       axios.post('https://trip-back-end-2.onrender.com/api/images', formData)
          .then((res) => {
             fetchImages()
@@ -52,7 +47,6 @@ export const Images = () => {
             res.data.sort((a, b) => {
                const timestampA = parseInt(a.filename.split("--")[0]);
                const timestampB = parseInt(b.filename.split("--")[0]);
-
                if (timestampA > timestampB) {
                   return -1;
                } else if (timestampA < timestampB) {
@@ -87,7 +81,7 @@ export const Images = () => {
    return (
       <div className='page images'>
          <main  >
-            <img alt='gallery' src={image} ref={mainImgRef} onClick={() => handleDownload(image)} />
+            <img alt='gallery' src={image} ref={mainImgRef} />
             <div className="btns">
                <button className='btn' onClick={() => fileInputRef.current.click()}>Upload Image {svgs.upload}</button>
                <button className='btn' onClick={() => handleDownload(image)}>download Image {svgs.download}</button>
@@ -99,7 +93,7 @@ export const Images = () => {
                name="file"
                id="image-uploader"
                accept='image/'
-               onChange={(e) => setImage(e.target.files[0])}
+               onChange={(e) => uploadImage(e.target.files[0])}
                hidden
             />
          </main>
