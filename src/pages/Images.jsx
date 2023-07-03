@@ -12,13 +12,9 @@ export const Images = () => {
    const [uploadedImageUrl, setUploadedImageUrl] = useState('');
 
    useUpdateEffect(() => {
-      console.log(image);
       uploadImage()
    }, [image])
-   useUpdateEffect(() => {
-      if (images.length === 0) return
-      setUploadedImageUrl(images[0].src)
-   }, [images])
+
 
    useEffect(() => {
       fetchImages()
@@ -66,6 +62,9 @@ export const Images = () => {
       axios.get('https://trip-back-end.onrender.com/api/images', options)
          .then((response) => {
             const fetchedImages = response.data.images;
+            const newImages = images.sort(compareCreatedAt);
+            setImages(newImages)
+            setUploadedImageUrl(images.sort(compareCreatedAt)[0].src)
             setImages(fetchedImages);
          })
          .catch((error) => {
@@ -73,7 +72,12 @@ export const Images = () => {
          });
    };
    console.log(images);
+   function compareCreatedAt(a, b) {
+      const dateA = new Date(a.created_at);
+      const dateB = new Date(b.created_at);
 
+      return dateA - dateB;
+   }
    const handleDownload = (url) => {
       fetch(url)
          .then((response) => response.blob())
