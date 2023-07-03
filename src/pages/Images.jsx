@@ -64,7 +64,6 @@ export const Images = () => {
             const fetchedImages = response.data.images;
             const newImages = images.sort(compareCreatedAt);
             setImages(newImages)
-            setUploadedImageUrl(images.sort(compareCreatedAt)[0].src)
             setImages(fetchedImages);
          })
          .catch((error) => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import birdImage from '../assets/imgs/bird-1.webp';
 import foodImage from '../assets/imgs/food-9.webp';
 import pipeBottomImage from '../assets/imgs/pipe-bottom.jpg';
@@ -6,6 +6,7 @@ import pipeTopImage from '../assets/imgs/pipe-top.png';
 import backgroundImage1 from '../assets/imgs/background-1.jpg';
 import backgroundImage2 from '../assets/imgs/background-2.png';
 import backgroundImage3 from '../assets/imgs/background-3.png';
+import { Doodlejump } from '../cmps';
 export const Games = () => {
    const canvasRef = useRef(null);
    const scoreRef = useRef(0);
@@ -219,7 +220,8 @@ export const Games = () => {
       <div className='games' >
          <div className='counter'>{counterText && <span>{counterText}</span>} </div>
          {gameOver && <button className='btn b2' onClick={handleClick}>start</button>}
-         <canvas  ref={canvasRef} width={400} height={600} tabIndex="0" />
+         <canvas ref={canvasRef} width={400} height={600} tabIndex="0" />
+         <Doodlejump />
       </div>
    );
 };
