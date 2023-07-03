@@ -17,7 +17,7 @@ export const Images = () => {
    }, [image])
    useUpdateEffect(() => {
       if (images.length === 0) return
-      console.log(image);
+      mainImgRef.current.src = images[0]
       setImage(images[0])
    }, [images])
 
