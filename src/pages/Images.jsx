@@ -17,8 +17,7 @@ export const Images = () => {
    }, [image])
    useUpdateEffect(() => {
       if (images.length === 0) return
-      mainImgRef.current.src = images[0].src
-      setImage(images[0])
+      setUploadedImageUrl(images[0].src)
    }, [images])
 
    useEffect(() => {
