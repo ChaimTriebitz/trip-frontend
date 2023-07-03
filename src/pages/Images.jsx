@@ -44,7 +44,6 @@ export const Images = () => {
       })
          .then((response) => {
             const imageUrl = response.data.imageUrl;
-            setUploadedImageUrl(imageUrl);
             setImage(null);
             fetchImages()
          })
