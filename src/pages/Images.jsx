@@ -42,7 +42,7 @@ export const Images = () => {
       const formData = new FormData();
       formData.append('image', image);
     
-      axios.post('http://localhost:3001/upload', formData, {
+      axios.post('https://trip-to-deploy.onrender.com/api/images', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
