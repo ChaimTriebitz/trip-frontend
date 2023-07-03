@@ -4,7 +4,7 @@ import { Games, Home, Images, Schedule, Zmanim } from './pages';
 
 
 function App(){
-   document.title = "50 Anniversaryy";
+   document.title = "50 Anniversary";
 
 
 

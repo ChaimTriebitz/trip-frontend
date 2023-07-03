@@ -9,11 +9,16 @@ export const Images = () => {
    const fileInputRef = useRef(null)
    const [image, setImage] = useState('')
    const [images, setImages] = useState([])
+   const [uploadedImageUrl, setUploadedImageUrl] = useState('');
 
+   useUpdateEffect(() => {
+      console.log(image);
+      uploadImage()
+   }, [image])
    useUpdateEffect(() => {
       if (images.length === 0) return
       console.log(image);
-      setImage(`https://trip-back-end-2.onrender.com/${images[0].path.replace(/\\/g, '/')}`)
+      setImage(`https://trip-to-deploy.onrender.com/${images[0].path.replace(/\\/g, '/')}`)
    }, [images])
 
    useEffect(() => {
@@ -29,36 +34,43 @@ export const Images = () => {
       });
    }
 
-   const uploadImage = (img) => {
+   const uploadImage = () => {
+     if (!image) {
+        return;
+      }
+    
       const formData = new FormData();
-      formData.append('image', img);
-      axios.post('https://trip-back-end-2.onrender.com/api/images', formData)
-         .then((res) => {
-            fetchImages()
-         })
-         .catch((err) => {
-            console.log(err);
-         });
+      formData.append('image', image);
+    
+      axios.post('http://localhost:3001/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+        .then((response) => {
+          const imageUrl = response.data.imageUrl;
+          setUploadedImageUrl(imageUrl);
+          setImage(null);
+        })
+        .catch((error) => {
+          console.error('Error uploading image:', error);
+        });
    };
 
    const fetchImages = () => {
-      axios.get('https://trip-back-end-2.onrender.com/api/images')
-         .then((res) => {
-            res.data.sort((a, b) => {
-               const timestampA = parseInt(a.filename.split("--")[0]);
-               const timestampB = parseInt(b.filename.split("--")[0]);
-               if (timestampA > timestampB) {
-                  return -1;
-               } else if (timestampA < timestampB) {
-                  return 1;
-               } else {
-                  return 0;
-               }
-            });
-            setImages(res.data);
+      const folderName = 'trip'
+      const options = {
+         params: {
+            folder: folderName,
+         },
+      };
+      axios.get('https://trip-to-deploy.onrender.com/api/images', options)
+         .then((response) => {
+            const fetchedImages = response.data.images;
+            setImages(fetchedImages);
          })
-         .catch((err) => {
-            console.log(err);
+         .catch((error) => {
+            console.error('Error fetching images:', error);
          });
    };
    console.log(images);
@@ -81,10 +93,10 @@ export const Images = () => {
    return (
       <div className='page images'>
          <main  >
-            <img alt='gallery' src={image} ref={mainImgRef} />
+            <img alt='gallery' src={uploadedImageUrl} ref={mainImgRef} onClick={() => handleDownload(image)} />
             <div className="btns">
                <button className='btn' onClick={() => fileInputRef.current.click()}>Upload Image {svgs.upload}</button>
-               <button className='btn' onClick={() => handleDownload(image)}>download Image {svgs.download}</button>
+               <button className='btn' onClick={() => handleDownload(uploadedImageUrl)}>download Image {svgs.download}</button>
             </div>
             <input
                ref={fileInputRef}
@@ -93,13 +105,13 @@ export const Images = () => {
                name="file"
                id="image-uploader"
                accept='image/'
-               onChange={(e) => uploadImage(e.target.files[0])}
+               onChange={(e) => setImage(e.target.files[0])}
                hidden
             />
          </main>
          <section className="gallery" ref={galleryRef}>
             {images.map((image) => (
-               <img key={image._id} onerror='sdfsdfsd' onClick={handleClick} src={`https://trip-back-end-2.onrender.com/${image.path.replace(/\\/g, '/')}`} alt={image.filename} />
+               <img key={image._id} onClick={handleClick} src={image.secure_url} alt={image.filename} />
             ))}
          </section>
       </div>
