@@ -46,6 +46,7 @@ export const Images = () => {
             const imageUrl = response.data.imageUrl;
             setUploadedImageUrl(imageUrl);
             setImage(null);
+            fetchImages()
          })
          .catch((error) => {
             console.error('Error uploading image:', error);
@@ -62,9 +63,9 @@ export const Images = () => {
       axios.get('https://trip-back-end.onrender.com/api/images', options)
          .then((response) => {
             const fetchedImages = response.data.images;
-            const newImages = images.sort(compareCreatedAt);
+            const newImages = fetchedImages.sort(compareCreatedAt);
             setImages(newImages)
-            setImages(fetchedImages);
+            setUploadedImageUrl(fetchedImages[0].src)
          })
          .catch((error) => {
             console.error('Error fetching images:', error);

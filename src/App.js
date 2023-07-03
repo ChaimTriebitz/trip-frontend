@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { ScheduleDay, NavBar, ZmanimDay } from './cmps';
+import { ScheduleDay, NavBar, ZmanimDay, Doodlejump } from './cmps';
 import { Games, Home, Images, Schedule, Zmanim } from './pages';
 
 
@@ -16,6 +16,7 @@ function App(){
             <Route path='/' element={<Home />} />
             <Route path='/images' element={<Images />} />
             <Route path='/games' element={<Games />} />
+            <Route path='/doodle' element={ <Doodlejump />} />
 
             {/* <Route path='login' element={<Login />} /> */}
             <Route path='/schedule' element={<Schedule />} >
