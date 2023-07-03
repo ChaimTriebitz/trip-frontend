@@ -35,26 +35,26 @@ export const Images = () => {
    }
 
    const uploadImage = () => {
-     if (!image) {
-        return;
+      if (!image) {
+         return;
       }
-    
+
       const formData = new FormData();
       formData.append('image', image);
-    
-      axios.post('https://trip-to-deploy.onrender.com/api/images', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+
+      axios.post('https://trip-back-end.onrender.com/api/images', formData, {
+         headers: {
+            'Content-Type': 'multipart/form-data',
+         },
       })
-        .then((response) => {
-          const imageUrl = response.data.imageUrl;
-          setUploadedImageUrl(imageUrl);
-          setImage(null);
-        })
-        .catch((error) => {
-          console.error('Error uploading image:', error);
-        });
+         .then((response) => {
+            const imageUrl = response.data.imageUrl;
+            setUploadedImageUrl(imageUrl);
+            setImage(null);
+         })
+         .catch((error) => {
+            console.error('Error uploading image:', error);
+         });
    };
 
    const fetchImages = () => {
@@ -64,7 +64,7 @@ export const Images = () => {
             folder: folderName,
          },
       };
-      axios.get('https://trip-to-deploy.onrender.com/api/images', options)
+      axios.get('https://trip-back-end.onrender.com/api/images', options)
          .then((response) => {
             const fetchedImages = response.data.images;
             setImages(fetchedImages);
