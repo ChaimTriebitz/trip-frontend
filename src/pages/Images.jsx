@@ -18,7 +18,7 @@ export const Images = () => {
    useUpdateEffect(() => {
       if (images.length === 0) return
       console.log(image);
-      setImage(`https://trip-to-deploy.onrender.com/${images[0].path.replace(/\\/g, '/')}`)
+      setImage(`https://trip-back-end.onrender.com/api/images`)
    }, [images])
 
    useEffect(() => {
