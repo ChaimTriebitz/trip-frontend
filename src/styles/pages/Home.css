@@ -54,7 +54,7 @@
 
 .home main .map {
    padding: 1em;
-   background: linear-gradient(180deg,white  0%, var(--color-blue-dark)50%, var(--color-olive-light) );
+   background: linear-gradient(180deg, white 0%, var(--color-blue-dark)50%, var(--color-olive-light));
 
 }
 
@@ -66,4 +66,15 @@
    color: transparent;
    font-size: 2em;
    font-weight: 600;
+}
+
+.tefilat-haderech {
+   color: black;
+   padding: 1em;
+   text-align: right;
+}
+.tefilat-haderech h1{
+font-size: 2em;
+font-weight: 600;
+text-align: center;
 }

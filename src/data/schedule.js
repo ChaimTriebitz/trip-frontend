@@ -18,6 +18,14 @@ export const schedule = [
                link: ''
             }
          },
+         {
+            time: 'TBD',
+            info: 'Opening night and interdiction by Chedva',
+            link: {
+               name: '',
+               link: ''
+            }
+         },
       ]
    },
    {
@@ -49,7 +57,7 @@ export const schedule = [
          },
          {
             time: '10:00 AM',
-            info: 'Cable car to the top of weisshorn mountain Hike Hike down to the bear sanctuary',
+            info: 'Cable car to the top of Weisshorn Mountain Hike down to bear sanctuary Back to Arosa',
             link: {
                name: '',
                link: ''
@@ -139,7 +147,7 @@ export const schedule = [
          },
          {
             time: '10:00 AM',
-            info: 'surprise activity',
+            info: 'Surprise Activity',
             link: {
                name: '',
                link: ''
@@ -159,7 +167,15 @@ export const schedule = [
       day: 5,
       schedule: [
          {
-            time: '11:00 AM',
+            time: '9:00 AM',
+            info: 'Clean-up',
+            link: {
+               name: '',
+               link: ''
+            }
+         },
+         {
+            time: '10:00 AM',
             info: 'Check-out',
             link: {
                name: '',

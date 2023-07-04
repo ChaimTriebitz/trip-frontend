@@ -11,6 +11,7 @@ export const Home = () => {
             <Link onClick={() => dispatch({ type: ACTIONS.UPDATE_PAGE_NAME, payload: 'schedule' })} className='btn b2 neon-button' to='/schedule'>Schedule</Link>
          </header>
          <main>
+            
             <section className="links">
                <div className="link">
                   <a href="http://www.irgz.ch/downloads/koscherliste_aktuell.pdf">Kosher Food List</a>
@@ -19,6 +20,12 @@ export const Home = () => {
                   <a href="https://www.sbb.ch/en">Train Map & Schedule</a>
 
                </div>
+            </section>
+            <section className='tefilat-haderech'>
+               <h1>תפילת הדרך</h1>
+               <p>
+               יְהִי רָצוֹן מִלְּפָנֶיךָ יְהֹוָה אֱלֹהֵנוּ וֵאֱלֹהֵי אֲבוֹתֵינוּ, שֶׁתּוֹלִיכֵנוּ לְשָׁלוֹם וְתַצְעִידֵנוּ לְשָׁלוֹם, וְתִסְמְכֵנוּ לְשָׁלוֹם, וְתַנְחֵנוּ אֶל מְחוֹז חֶפְצֵנוּ לְחַיִּים וְלְשִּׂמְחָה ולְשָּׁלוֹם. (ואם דעתו לחזור באותו יום - אומר: וְתַחְזִירֵנוּ לְשָׁלוֹם) וְתַצִּילֵנוּ מִכַּף כׇּל אוֹיֵב וְאוֹרֵב בַּדֶּרֶךְ וּמִכׇּל מִינֵי פֻּרְעָנֻיּוֹת הַמִּתְרַגְּשׁוֹת לָבוֹא לָעוֹלָם, וְתִשְׁלַח בְּרָכָה בְּמַעֲשֵׂה יָדֵינוּ. וְתִתְנְנוֹ לְחֵן וּלְחֶסֶד וּלְרַחֲמִים בְּעֵינֶיךָ וּבְעֵינֵי כׇּל רוֹאֵינוּ, וְתִשְׁמַע קוֹל תַּחֲנוּנֵינוּ. כִּי אֵל שׁוֹמֵעַ תְּפִלָּה וְתַחֲנוּן אַתָּה. בָּרוּךְ אַתָּה יְהֹוָה שׁוֹמֵעַ תְּפִלָּה.
+               </p>
             </section>
             <section className='map'>
                <h2 >MAP</h2>
@@ -32,7 +39,6 @@ export const Home = () => {
                </iframe>
 
             </section>
-
          </main>
       </div>
    )

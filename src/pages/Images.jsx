@@ -5,9 +5,8 @@ export const Images = () => {
    const galleryRef = useRef(null)
    const mainImgRef = useRef(null)
    const fileInputRef = useRef(null)
-   const [image, setImage] = useState('')
    const [images, setImages] = useState([])
-   const [uploadedImageUrl, setUploadedImageUrl] = useState('');
+   const [isLoading, setIsLoading] = useState(true)
 
 
    useEffect(() => {
@@ -16,7 +15,6 @@ export const Images = () => {
 
    const handleClick = (e) => {
       mainImgRef.current.src = e.target.src
-      setImage(e.target.src)
       window.scrollTo({
          top: 0,
          behavior: "smooth"
@@ -57,21 +55,20 @@ export const Images = () => {
             const newImages = fetchedImages.sort(compareCreatedAt);
             setImages(newImages)
             mainImgRef.current.src = newImages[0].url
-            console.log(newImages);
          })
          .catch((error) => {
             console.error('Error fetching images:', error);
-         });
+         })
+         .finally(() => setIsLoading(false))
    };
-   console.log(images);
    function compareCreatedAt(a, b) {
       const dateA = new Date(a.created_at);
       const dateB = new Date(b.created_at);
 
       return dateB - dateA;
    }
-   const handleDownload = (url) => {
-      fetch(url)
+   const handleDownload = () => {
+      fetch(mainImgRef.current.src)
          .then((response) => response.blob())
          .then((blob) => {
             const url = URL.createObjectURL(blob);
@@ -87,11 +84,12 @@ export const Images = () => {
 
    return (
       <div className='page images'>
+         {isLoading && <div className="loader"></div>}
          <main  >
-            <img alt='gallery' src={uploadedImageUrl} ref={mainImgRef} />
+            <img alt='gallery' ref={mainImgRef} />
             <div className="btns">
                <button className='btn' onClick={() => fileInputRef.current.click()}>Upload Image {svgs.upload}</button>
-               <button className='btn' onClick={() => handleDownload(uploadedImageUrl)}>download Image {svgs.download}</button>
+               <button className='btn' onClick={handleDownload}>download Image {svgs.download}</button>
             </div>
             <input
                ref={fileInputRef}

@@ -15,7 +15,6 @@ export const NavBar = () => {
    const [isMenuOpen, setIsMenuOpen] = useState(false)
    const { page, dispatch } = useGlobalState()
    const { search, pathname } = useLocation()
-   console.log(page);
    const handleNavigation = (pageName) => {
       dispatch({ type: ACTIONS.UPDATE_PAGE_NAME, payload: pageName })
       setIsMenuOpen(false)
@@ -27,8 +26,8 @@ export const NavBar = () => {
 
             </Link>
          </section>
-         <h1 className='wave'>{page}</h1>
-         <h1 className='wave'>{page}</h1>
+         <h1 className='wave'>{page.startsWith("/") ? page.slice(1) : page}</h1>
+         <h1 className='wave'>{page.startsWith("/") ? page.slice(1) : page}</h1>
          <section className={isMenuOpen ? 'nav open' : 'nav'}>
             {
                pages.map(page =>
