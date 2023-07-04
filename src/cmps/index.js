@@ -2,6 +2,7 @@ import { NavBar } from './NavBar.jsx';
 import { ScheduleDay } from './ScheduleDay.jsx';
 import { ZmanimDay } from './ZmanimDay.jsx';
 import { Doodlejump } from './games/Doodlejump.jsx';
+import { Floppybird } from './games/Floppybird.jsx';
 // import { Search } from './Search.jsx';
 // import { GlobalSearch } from './GlobalSearch.jsx';
 // import { Pagination } from './Pagination.jsx';
@@ -17,6 +18,7 @@ export {
    ScheduleDay,
    ZmanimDay,
    Doodlejump,
+   Floppybird,
    // Search,
    // Pagination,
    // Msg,

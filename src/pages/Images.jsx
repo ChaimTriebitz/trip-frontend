@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useUpdateEffect } from '../hooks/useUpdateEffect'
-import { schedule } from '../data/schedule';
 import axios from 'axios'
 import { svgs } from '../assets/svgs';
 export const Images = () => {
@@ -10,10 +8,6 @@ export const Images = () => {
    const [image, setImage] = useState('')
    const [images, setImages] = useState([])
    const [uploadedImageUrl, setUploadedImageUrl] = useState('');
-
-   useUpdateEffect(() => {
-      uploadImage()
-   }, [image])
 
 
    useEffect(() => {
@@ -29,13 +23,11 @@ export const Images = () => {
       });
    }
 
-   const uploadImage = () => {
-      if (!image) {
-         return;
-      }
+   const handleUploadImage = (e) => {
+      const img = e.target.files[0]
 
       const formData = new FormData();
-      formData.append('image', image);
+      formData.append('image', img);
 
       axios.post('https://trip-back-end.onrender.com/api/images', formData, {
          headers: {
@@ -44,7 +36,7 @@ export const Images = () => {
       })
          .then((response) => {
             const imageUrl = response.data.imageUrl;
-            setImage(null);
+            mainImgRef.current.src = imageUrl
             fetchImages()
          })
          .catch((error) => {
@@ -64,7 +56,8 @@ export const Images = () => {
             const fetchedImages = response.data.images;
             const newImages = fetchedImages.sort(compareCreatedAt);
             setImages(newImages)
-            setUploadedImageUrl(fetchedImages[0].src)
+            mainImgRef.current.src = newImages[0].url
+            console.log(newImages);
          })
          .catch((error) => {
             console.error('Error fetching images:', error);
@@ -75,7 +68,7 @@ export const Images = () => {
       const dateA = new Date(a.created_at);
       const dateB = new Date(b.created_at);
 
-      return dateA - dateB;
+      return dateB - dateA;
    }
    const handleDownload = (url) => {
       fetch(url)
@@ -95,7 +88,7 @@ export const Images = () => {
    return (
       <div className='page images'>
          <main  >
-            <img alt='gallery' src={uploadedImageUrl} ref={mainImgRef} onClick={() => handleDownload(image)} />
+            <img alt='gallery' src={uploadedImageUrl} ref={mainImgRef} />
             <div className="btns">
                <button className='btn' onClick={() => fileInputRef.current.click()}>Upload Image {svgs.upload}</button>
                <button className='btn' onClick={() => handleDownload(uploadedImageUrl)}>download Image {svgs.download}</button>
@@ -107,7 +100,7 @@ export const Images = () => {
                name="file"
                id="image-uploader"
                accept='image/'
-               onChange={(e) => setImage(e.target.files[0])}
+               onChange={handleUploadImage}
                hidden
             />
          </main>
