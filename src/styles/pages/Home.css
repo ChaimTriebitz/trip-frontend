@@ -10,15 +10,18 @@
 .home header h2 {
    text-align: center;
    padding: 0em 1em;
-   font-size: 1.125em;
+   font-size: 1.225em;
    font-weight: 700;
-   background: linear-gradient(200deg, black 50%, var(--color-olive-dark));
-   -webkit-background-clip: text;
-   background-clip: text;
-   color: transparent;
+   color: white;
 }
+
+.home sup{
+font-size: 0.75em;
+
+}
+
 .home header h2:first-child {
-padding-top: 1em;
+   padding-top: 1em;
 }
 
 .home main .links {

@@ -8,7 +8,7 @@ export const Home = () => {
    return (
       <div className='page home'>
          <header>
-            <h2>Welcome to the 50 Anniversary Celebration</h2>
+            <h2>Welcome to the 50<sup>th</sup> Anniversary Celebration</h2>
             <h2>Arosa Switzerland 2023</h2>
             <Link onClick={() => dispatch({ type: ACTIONS.UPDATE_PAGE_NAME, payload: 'schedule' })} className='btn b2 neon-button' to='/schedule'>Schedule</Link>
          </header>

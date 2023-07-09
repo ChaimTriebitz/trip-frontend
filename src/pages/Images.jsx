@@ -22,6 +22,7 @@ export const Images = () => {
    }
 
    const handleUploadImage = (e) => {
+      setIsLoading(true)
       const img = e.target.files[0]
 
       const formData = new FormData();
