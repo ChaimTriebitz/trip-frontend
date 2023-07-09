@@ -17,16 +17,40 @@
    margin: auto;
    position: relative;
 }
-.games .game canvas{
+
+.games .game canvas {
    width: 100%;
 }
 
 .games .start {
    position: absolute;
-   top: 10%;
+   top: 20%;
    left: 50%;
    transform: translate(-50%, -50%);
    animation: blur 1.5s ease-in-out infinite;
+}
+
+.games h1 {
+   position: absolute;
+   top: 7.5%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   font-size: 1.15em;
+   font-weight: 700;
+   text-align: center;
+   background: linear-gradient(0deg, var(--color-blue-light)50%, var(--color-blue-dark)75%, white 100%);
+   -webkit-background-clip: text;
+   background-clip: text;
+   color: transparent;
+}
+
+.games h1 span {
+   color: var(--color-blue-dark);
+
+   font-size: 1.25em;
+   white-space: nowrap;
+  
+
 }
 
 .games .counter {
@@ -68,19 +92,19 @@
 @keyframes blur {
    0% {
       opacity: 1;
-      transform:scale(0.99) translate(-50%,-50%) ;
+      transform: scale(0.99) translate(-50%, -50%);
 
    }
 
    50% {
       opacity: 0.99;
-      transform:scale(1.01)translate(-50%,-50%) ;
+      transform: scale(1.01)translate(-50%, -50%);
 
    }
 
    100% {
       opacity: 1;
-      transform: scale(1)translate(-50%,-50%) ;
+      transform: scale(1)translate(-50%, -50%);
 
    }
 }

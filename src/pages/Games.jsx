@@ -8,16 +8,16 @@ export const Games = () => {
    const [currGame, setCurrGame] = useState('')
    return (
       <div className="games">
-         <nav>
+         {/* <nav>
             <button onClick={() => setCurrGame('floppybird')}>
                <img src={floppybirdImage} alt="floppybird" />
             </button>
             <button onClick={() => setCurrGame('doodlejump')}>
                <img src={doodlejumpImage} alt="doodlejump" />
             </button>
-         </nav>
+         </nav> */}
 
-
+         <Floppybird />
          {currGame === 'floppybird' && <Floppybird />}
          {currGame === 'doodlejump' && <Doodlejump />}
       </div>

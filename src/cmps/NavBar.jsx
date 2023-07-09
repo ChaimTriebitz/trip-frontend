@@ -22,7 +22,7 @@ export const NavBar = () => {
    return (
       <div className='nav-bar'>
          <section className='logo-section' >
-            <Link to='/'>
+            <Link onClick={() => handleNavigation('home')} to='/'>
 
             </Link>
          </section>

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import birdImage from '../../assets/imgs/bird-1.webp';
+import { useUpdateEffect } from '../../hooks/useUpdateEffect'
+import birdImage from '../../assets/imgs/aba7.png';
 import foodImage from '../../assets/imgs/food-9.webp';
 import pipeBottomImage from '../../assets/imgs/pipe-bottom.jpg';
 import pipeTopImage from '../../assets/imgs/pipe-top.png';
@@ -24,7 +24,7 @@ export const Floppybird = () => {
       if (!gameOver) {
          const intervalId = setInterval(() => {
             setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
-         }, 20000); // Change the background image every 5 seconds (adjust the interval as needed)
+         }, 15000); // Change the background image every 5 seconds (adjust the interval as needed)
 
          return () => {
             clearInterval(intervalId);
@@ -32,12 +32,12 @@ export const Floppybird = () => {
       }
    }, [gameOver]);
 
-   useEffect(() => {
+   useUpdateEffect(() => {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext('2d');
       const canvasWidth = canvas.width;
       const canvasHeight = canvas.height;
-      const birdSize = 30;
+      const birdSize = 40;
       const birdGravity = 0.25;
       const birdJumpStrength = 5;
       const pipeWidth = 80;
@@ -48,7 +48,7 @@ export const Floppybird = () => {
          x: canvasWidth / 4,
          y: canvasHeight / 10,
          width: birdSize,
-         height: birdSize - 10,
+         height: birdSize + 10,
          velocity: 0,
          jump: function () {
             this.velocity = -birdJumpStrength;
@@ -178,7 +178,7 @@ export const Floppybird = () => {
          ctx.fillStyle = '#000';
          ctx.font = '24px sans-serif';
          ctx.fillText(`Score: ${scoreRef.current}`, 10, 30);
-         if (gameOver) {
+         if (gameOver && scoreRef.current !== 0) {
             scoreRef.current = 0
             ctx.fillText(`Game Over`, canvasWidth / 2 - 60, 200);
             cancelAnimationFrame(frameRef.current);
@@ -220,7 +220,8 @@ export const Floppybird = () => {
       <div className='game' >
          <div className='counter'>{counterText && <span>{counterText}</span>} </div>
          {gameOver && <button className='start btn b2' onClick={handleStart}>start</button>}
-         <canvas ref={canvasRef} width={400} height={650} tabIndex="0" />
+         {gameOver && <h1 >Welcome to the <span>FLOPPY SCHOENS</span> game <br />↓↓↓ </h1> }
+         <canvas ref={canvasRef} width={400} height={625} tabIndex="0" />
       </div>
    );
 }
