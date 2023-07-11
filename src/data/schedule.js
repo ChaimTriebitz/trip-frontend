@@ -20,7 +20,7 @@ export const schedule = [
          },
          {
             time: 'TBD',
-            info: 'Opening night and interdiction by Chedva',
+            info: 'Opening night and introduction by Chedva',
             link: {
                name: '',
                link: ''
