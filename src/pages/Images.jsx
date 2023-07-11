@@ -47,7 +47,7 @@ export const Images = () => {
 
    const loadImages = async () => {
       try {
-         const res = await fetch('http://localhost:4001/api/images');
+         const res = await fetch('https://trip-back-end.onrender.com/api/images');
          const data = await res.json();
          setImageIds(data);
          mainImgRef.current.src = data[0].url
