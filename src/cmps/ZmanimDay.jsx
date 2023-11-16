@@ -7,7 +7,7 @@ export const ZmanimDay = () => {
       <div className='zmanim-day'>
          <section>
             <h6>{zmanim.netz}</h6>
-            <h2>נץ</h2>
+{/*             <h2>נץ</h2> */}
          </section>
          <section>
             <h6>{zmanim.szkshmga}</h6>
