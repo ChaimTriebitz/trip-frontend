@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useGlobalState } from '../hooks/useGlobalState'
 import { ACTIONS } from '../state'
+import { Helmet } from 'react-helmet'
 
 export const Home = () => {
    const { dispatch } = useGlobalState()
@@ -13,7 +14,22 @@ export const Home = () => {
             <Link onClick={() => dispatch({ type: ACTIONS.UPDATE_PAGE_NAME, payload: 'schedule' })} className='btn b2 neon-button' to='/schedule'>Schedule</Link>
          </header>
          <main>
-
+            <Helmet>
+               {/* Google AdSense code */}
+               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1412016253753525" crossorigin="anonymous"></script>
+               <ins className="adsbygoogle"
+                  style={{ display: 'block' }}
+                  data-ad-client="ca-pub-1412016253753525"
+                  data-ad-slot="1333997469"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true">
+               </ins>
+               <script>
+                  {`
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        `}
+               </script>
+            </Helmet>
             <section className="links">
                <div className="link">
                   <a href="http://www.irgz.ch/downloads/koscherliste_aktuell.pdf">Kosher Food List</a>
