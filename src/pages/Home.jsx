@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useGlobalState } from '../hooks/useGlobalState'
 import { ACTIONS } from '../state'
 import { Helmet } from 'react-helmet'
+import { GoogleAdSense } from "next-google-adsense";
 
 export const Home = () => {
    const { dispatch } = useGlobalState()
@@ -14,6 +15,7 @@ export const Home = () => {
             <Link onClick={() => dispatch({ type: ACTIONS.UPDATE_PAGE_NAME, payload: 'schedule' })} className='btn b2 neon-button' to='/schedule'>Schedule</Link>
          </header>
          <main>
+         <GoogleAdSense publisherId="pub-1412016253753525" />
             <Helmet>
                {/* Google AdSense code */}
                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1412016253753525" crossorigin="anonymous"></script>
