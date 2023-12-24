@@ -25,9 +25,7 @@ export const Home = () => {
                   data-full-width-responsive="true">
                </ins>
                <script>
-                  {`
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        `}
+                  {(adsbygoogle = window.adsbygoogle || []).push({})}
                </script>
             </Helmet>
             <section className="links">
