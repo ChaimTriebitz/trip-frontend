@@ -20,12 +20,13 @@ export const Home = () => {
          </header>
          <main>
 
-            <ins class="adsbygoogle"
-               style="display:block"
+            <ins
+               class="adsbygoogle"
+               style={{ display: 'block' }}
                data-ad-client="ca-pub-1412016253753525"
                data-ad-slot="6075543477"
                data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
+            />
             <section className="links">
                <div className="link">
                   <a href="http://www.irgz.ch/downloads/koscherliste_aktuell.pdf">Kosher Food List</a>
