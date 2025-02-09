@@ -3,7 +3,7 @@
 This is a simple family trip website built with React.js. It includes a schedule, routes for different pages, and a section for uploading images to Cloudinary.
 
 ## Live Demo 🚀  
-[![🖱️ Click here to try it out!](https://img.shields.io/badge/Try%20it%20Now%20🚀-blue?style=for-the-badge)](https://www.fraiman-law-firm.com)
+[![🖱️ Click here to try it out!](https://img.shields.io/badge/Try%20it%20Now%20🚀-blue?style=for-the-badge)](https://trip-front-end.onrender.com)
 
 ## Features
 - **Responsive design** for all devices
