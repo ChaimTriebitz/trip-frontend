@@ -14,7 +14,7 @@ export const Zmanim = () => {
    return (
       <div className='page zmanim'>
          <header>
-            <Link onClick={() => dispatch({ type: ACTIONS.UPDATE_PAGE_NAME, payload: 'gallery' })} className='btn b2 neon-button' to='/images'>gallery</Link>
+            <Link onClick={() => dispatch({ type: ACTIONS.UPDATE_PAGE_NAME, payload: 'gallery' })} className='btn b2 neon-button' to='/schedule'>Schedule</Link>
          </header>
          <nav className='nav'>
             {

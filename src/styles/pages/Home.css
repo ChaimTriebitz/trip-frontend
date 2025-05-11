@@ -1,7 +1,7 @@
 .home header {
    position: relative;
    height: 500px;
-   background-image: url(../../assets/imgs/home-banner.jpg);
+   background-image: url(../../assets/imgs/Lake-St.-Moritz-in-Summer.jpg);
    background-size: cover;
    background-position: center;
    opacity: 0.9;
@@ -62,7 +62,7 @@ font-size: 0.75em;
 }
 
 .home main .links .link:first-child {
-   background-image: url('../../assets/imgs/gefilta-fish.jpg');
+   background-image: url('../../assets/imgs/trutz-restaurant-st-moritz.jpg');
 }
 
 .home main .links .link:last-child {

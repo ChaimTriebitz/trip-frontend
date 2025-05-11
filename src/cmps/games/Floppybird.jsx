@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useUpdateEffect } from '../../hooks/useUpdateEffect'
-import birdImage from '../../assets/imgs/aba7.png';
+import birdImage from '../../assets/imgs/bird-1.webp';
 import foodImage from '../../assets/imgs/food-9.webp';
 import pipeBottomImage from '../../assets/imgs/pipe-bottom.jpg';
 import pipeTopImage from '../../assets/imgs/pipe-top.png';

@@ -7,8 +7,8 @@ import { ACTIONS } from '../state';
 const pages = [
    { name: 'home', link: '/' },
    { name: 'schedule', link: '/schedule' },
+   { name: 'gallery', link: '/gallery' },
    { name: 'zmanim', link: '/zmanim' },
-   { name: 'gallery', link: '/images' },
    { name: 'games', link: '/games' },
 ];
 export const NavBar = () => {

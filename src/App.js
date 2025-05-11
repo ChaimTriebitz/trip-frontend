@@ -14,7 +14,7 @@ function App(){
          <NavBar />
          <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/images' element={<Images />} />
+            <Route path='/gallery' element={<Images />} />
             <Route path='/games' element={<Games />} />
             <Route path='/doodle' element={ <Doodlejump />} />
 

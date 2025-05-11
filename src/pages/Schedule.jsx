@@ -15,7 +15,6 @@ export const Schedule = () => {
    return (
       <div className='page schedule'>
          <header>
-            <Link onClick={() => dispatch({ type: ACTIONS.UPDATE_PAGE_NAME, payload: 'zmanim' })} className='btn b2 neon-button' to='/zmanim'>Zmanim</Link>
          </header>
          <nav className='nav'>
             {

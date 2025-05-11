@@ -7,26 +7,26 @@ import { useEffect } from 'react'
 
 export const Home = () => {
    const { dispatch } = useGlobalState()
-   useEffect(() => {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-   }, [])
+   // useEffect(() => {
+   //    (window.adsbygoogle = window.adsbygoogle || []).push({});
+   // }, [])
 
    return (
       <div className='page home'>
          <header>
             <h2>Welcome to the 50<sup>th</sup> Anniversary Celebration</h2>
             <h2>Arosa Switzerland 2023</h2>
-            <Link onClick={() => dispatch({ type: ACTIONS.UPDATE_PAGE_NAME, payload: 'schedule' })} className='btn b2 neon-button' to='/schedule'>Schedule</Link>
+            <Link onClick={() => dispatch({ type: ACTIONS.UPDATE_PAGE_NAME, payload: 'gallery' })} className='btn b2 neon-button' to='/gallery'>Gallary</Link>
          </header>
          <main>
 
-            <ins
+            {/* <ins
                class="adsbygoogle"
                style={{ display: 'block' }}
                data-ad-client="ca-pub-1412016253753525"
                data-ad-slot="6075543477"
                data-ad-format="auto"
-            />
+            /> */}
             <section className="links">
                <div className="link">
                   <a href="http://www.irgz.ch/downloads/koscherliste_aktuell.pdf">Kosher Food List</a>
